@@ -15,14 +15,14 @@ pipeline {
         stage('Terraform Init'){
             steps {
                 script {
-                    sh 'Terraform init'
+                    sh 'terraform init'
                 }
             }
         }
         stage('Terraform Plan'){
             steps {
                 script {
-                    sh 'Terraform plan -out=tfplan'
+                    sh 'terraform plan -out=tfplan'
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Terraform Apply'){
             steps {
                 script {
-                    sh 'Terraform apply tfplan'
+                    sh 'terraform apply tfplan'
                     cleanWs()
                 }
             }
